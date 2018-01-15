@@ -55,12 +55,18 @@ class LinearRegression(object):
                             self.y)
 
     def _fit_gradient(self):
+        """
+            Method to use gradient descent to fit the coefs
+        """
         self.coef_ = np.random.random((self.X.shape[1], 1))
 
         for iter_ in xrange(5000):
             self.coef_ -= self.alpha * self._calc_cost()
 
     def _calc_cost(self):
+        """
+            Method to calculate the gradient of the coefs
+        """
         return np.mean((np.dot(self.X, self.coef_) - self.y) * self.X,
                        axis=0).reshape(-1,1)
 
