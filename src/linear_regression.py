@@ -85,7 +85,7 @@ def main():
     gdlr.fit(X, y)
     sklr.fit(X, y)
 
-    assert np.allclose(nlr.coef_, gdlr.coef_, .01), 'incorrect coefs'
+    assert np.allclose(sklr.coef_, gdlr.coef_[1:].T, .01), 'incorrect coefs'
 
 if __name__ == '__main__':
     main()
