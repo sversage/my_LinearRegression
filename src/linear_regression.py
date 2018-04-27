@@ -1,7 +1,8 @@
 """Module to implement Linear Regression"""
 import numpy as np
+from sklearn.linear_model import LinearRegression
 
-class LinearRegression(object):
+class MyLinearRegression(object):
     """Linear Regression Class"""
     def __init__(self, normal_equation=True, fit_intercept=True):
         """
@@ -73,8 +74,8 @@ def main():
     """
         Method to test the implementation
     """
-    nlr = LinearRegression()
-    gdlr = LinearRegression(normal_equation=False)
+    nlr = MyLinearRegression()
+    gdlr = MyLinearRegression(normal_equation=False)
     sklr = LinearRegression()
 
     X = np.random.random((50, 4))
@@ -87,5 +88,4 @@ def main():
     assert np.allclose(nlr.coef_, gdlr.coef_, .01), 'incorrect coefs'
 
 if __name__ == '__main__':
-    #main()
-    pass
+    main()
